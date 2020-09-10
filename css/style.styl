@@ -1,13 +1,13 @@
 
 body, html, .game
     height: 100%
+body
+    font-family sans-serif;
 .car 
     position: absolute
     width: 52px
     height: 100px
     &.player
-        left calc(150px - 26px)
-        bottom: 10px
         background transparent url('../image/playerNew.png') center / cover no-repeat
     &.enemy
         left calc(150px - 26px)
@@ -17,6 +17,34 @@ body, html, .game
             background transparent url('../image/enemyNew1.png') center / cover no-repeat
         &.enemyTank
             background transparent url('../image/enemyNew2.png') center / cover no-repeat
+        &.enemySport
+            width 50px
+            height 126px
+            background transparent url('../image/enemyNew3.png') center / cover no-repeat
+.playMusic
+    position absolute
+    right 10px
+    z-index 2
+    cursor pointer
+    svg
+        height: 50px;
+        width: 50px
+        fill: white;
+        &:nth-child(1)
+            display: block
+        &:nth-child(2)
+            display: none
+    &.play
+        svg:nth-child(1)
+            display: none;
+        svg:nth-child(2)
+            display: block;
+.radioButtons{
+    font-size 16px
+    margin-bottom 30px
+    margin-top 20px
+}
+
 .start
     position fixed
     top: 50%;
@@ -25,24 +53,30 @@ body, html, .game
     line-height 1.5
     z-index 2
     background #2a2a5d
-    width: 20%
+    width: 100% 
     color: white
     max-width: 400px
     height: 200px;
     display flex
+    flex-direction column
     align-items: center;
     justify-content: center
     box-shadow: 0 0 10px rgba(0,0,0,0.7);
     font-size 30px
     padding: 30px;
     text-align center
-    transition 0.2s all linear
-    cursor pointer
-    &:hover
-        box-shadow none
-        transform: translate(-50%, calc(-50% + 3px))
+    
+    
+    
     &.hide
         display none
+    button
+        font-size: 20px;
+        transition 0.2s all linear
+        &:hover
+            box-shadow none
+            transform: translateY(-3px)
+            cursor pointer
 .gameArea
     width: 300px
     height: 100%
@@ -56,3 +90,15 @@ body, html, .game
     width 10px
     height 50px
     left 145px
+.score{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background black 
+    padding: 1rem 0
+    z-index 1
+    color white
+    text-align center
+    min-height 25px
+}

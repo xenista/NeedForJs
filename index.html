@@ -10,8 +10,26 @@
 </head>
 <body>
     <div class="score"></div>
+    <div class="playMusic">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-play" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+          </svg>
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pause-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>
+          </svg>
+    </div>
     <div class="game">
-        <div class="start">Чтобы начать игру,<br>кликни сюда!</div>
+        <div class="start">
+            <span>Добро пожаловать в игру<br>Выбери уровень сложности:</span>
+            <div class="radioButtons">
+                <label for="complexity1"><input id="complexity1" name="complexity" type="radio" value="3" checked>Легкий</label>
+                <label for="complexity2"><input id="complexity2" name="complexity" type="radio" value="4">Средний</label>
+                <label for="complexity3"><input id="complexity3" name="complexity" type="radio" value="5">Сложный</label>
+                
+            </div>
+            <button class="startButton">Начать!</button>
+        </div>
+        
         <div class="gameArea"></div>
     </div>
     <script src="js/main.js"></script>
