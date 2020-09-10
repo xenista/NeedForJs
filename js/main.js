@@ -14,14 +14,18 @@ const setting = {
     speed: 3,
     traffic: 3
 }
+//для каждой машинки свой background
 const enemiesBG = ['enemyDPS', 'enemyTank'];
 
+//добавляем класс для машинки игрока
 car.classList.add('car', 'player');
+//рассчитываем количество элементов от высоты экрана и высоты элемента
 function getQuantityElements(elementHeight){
     return document.documentElement.clientHeight / elementHeight +1;
 }
 function startGame(){
     start.classList.add('hide');
+    //добавляем линии на дорогу
     for (let i=0; i< getQuantityElements(100); i++){
         const line = document.createElement('div');
         line.classList.add('line');
@@ -29,6 +33,7 @@ function startGame(){
         gameArea.appendChild(line);
         line.y = i * 100;
     }
+    // добавляем врагов
     for (let i=0; i< getQuantityElements(100 * setting.traffic); i++){
         const enemy = document.createElement('div');
         enemy.classList.add('car', 'enemy', enemiesBG[Math.round(Math.random())]);
@@ -48,6 +53,7 @@ function playGame(){
     if (setting.start) {
         moveRoad();
         moveEnemy();
+        //отслеживаем нажатие стрелок на клавиатуре
         if(keys.ArrowLeft && setting.x > 0){
             setting.x-=setting.speed;
         }
@@ -60,6 +66,7 @@ function playGame(){
         if(keys.ArrowUp && setting.y > 0){
             setting.y-=setting.speed;
         }
+        //перемещаем машинку
         car.style.left = setting.x + 'px';
         car.style.top = setting.y + 'px';
         requestAnimationFrame(playGame);
@@ -73,6 +80,7 @@ function stopRun(event){
     event.preventDefault();
     keys[event.key] = false;
 }
+//анимация движения дороги
 function moveRoad() {
     let lines = document.querySelectorAll('.line');
     lines.forEach(line => {
@@ -84,6 +92,7 @@ function moveRoad() {
         }
     )
 }
+//рандомное перемещение врагов
 function moveEnemy() {
     let enemies = document.querySelectorAll('.enemy');
     enemies.forEach(enemy => {
